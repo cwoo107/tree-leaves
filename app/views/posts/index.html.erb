@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<div class='row'>
+<div class='col-md-8 col-md-offset-2'>
+<div class="jumbotron">
+  
+</div>
+</div>
+</div>
+
+<% @posts.each do |post| %>
+  <div class = 'row' >
+    <div class='col-md-3 col-md-offset-1'>
+      <%= link_to image_tag(post.image.url(:med), class: "img-responsive"), post %>
+      <h3><%=post.name %></h3>
+      
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
